@@ -36,8 +36,10 @@
 	</div>
 
 	<div class="mb-3">
-		<img src="{{ App\Models\Post::showImage($post->image) }}" class="img-thumbnail mb-3" alt="{{ $post->image }}" />
-		<input name="image" class="form-control" type="file" id="image"/>
+		<div class="col-6">
+			<img src="{{ App\Models\Post::showImage($post->image) }}" class="img-thumbnail mb-3" alt="{{ $post->image }}" />
+			<input name="image" class="form-control" type="file" id="image"/>
+		</div>
 		@error('image')
 			<p class="text-danger">{{ $message }}</p>
 		@enderror

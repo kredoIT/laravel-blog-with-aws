@@ -93,9 +93,6 @@ class UserController extends Controller
 
         # put into public to be accessible
         $request->avatar->storeAs(self::S3_AVATAR_FOLDER, $name, 's3');
-        
-        # check if has existing avatar saved in db && in storage
-        if ($avatar) { $this->deleteAvatar($avatar); }
 
         return $name;
     }
@@ -110,8 +107,8 @@ class UserController extends Controller
     {
         $imgPath = self::S3_AVATAR_FOLDER . $avatar;
 
-        if (Storage::disk('s3')->exists($folder . $avatar)) {
-            Storage::disk('s3')->delete($folder . $avatar);
+        if (Storage::disk('s3')->exists($imgPath)) {
+            Storage::disk('s3')->delete($imgPath);
         }
     }
 }

@@ -136,7 +136,6 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $this->deletePostImage($id);
         $this->post->destroy($id);
 
         return redirect()->back();
@@ -156,9 +155,6 @@ class PostController extends Controller
 
         $request->image->storeAs(self::S3_IMAGES_FOLDER, $name, 's3');
 
-        # delete if there's any existing image to be overwritten
-        $this->deletePostImage($postId);
-
         return $name;
     }
 
@@ -175,9 +171,7 @@ class PostController extends Controller
         if ($postImage) {
             $imgPath = self::S3_IMAGES_FOLDER . $postImage;
 
-            if (Storage::disk('s3')->exists($imgPath)) {
-                Storage::disk('s3')->delete($imgPath);
-            }
+            Storage::disk('s3')->delete($imgPath);
         }
     }
 }
