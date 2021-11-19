@@ -7,6 +7,28 @@
 - Mysql: 8.0.22
 ```
 
+## FOR LINUX/MAC ENVIRONMENT
+
+#### clone the project
+```
+1. $ git clone this repository
+2. $ cd project
+3. $ cp .env.template .env
+4. $ make init
+5. edit db info and app_url on backend/.env file
+
+APP_URL=http://localhost
+
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=kredo
+DB_USERNAME=kredo
+DB_PASSWORD=password
+
+6. $ docker-compose exec app php artisan migrate
+```
+
 ## FOR WINDOWS ENVIRONMENT
 
 ### installation
@@ -78,37 +100,6 @@ winpty docker-compose logs
 # seeding the database
 winpty docker-compose exec app php artisan db:seed
 ```
-
-
-## FOR LINUX/MAC ENVIRONMENT
-
-#### clone the project
-```
-1. $ git clone this repository
-2. $ cd project
-```
-
-#### make sure that all files inside the ./backend folder is deleted
-
-```
-1. $ cp .env.template .env
-2. $ ls -la [ to check the current files / folders existing inside the ./backend folder]
-3. $ sudo rm -rf [you_file_or_folder_name]
-4. $ make create-project
-5. edit db info and app_url on backend/.env file
-
-APP_URL=http://localhost
-
-DB_CONNECTION=mysql
-DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=kredo
-DB_USERNAME=kredo
-DB_PASSWORD=password
-
-6. $ docker-compose exec app php artisan migrate
-```
-
 
 ### check browser
 ```
