@@ -29,6 +29,33 @@ DB_PASSWORD=password
 6. $ docker-compose exec app php artisan migrate
 ```
 
+### executables
+```
+# up default container
+$ docker-compose up -d
+
+# build no cache and force remake container
+$ docker-compose build --no-cache --force-rm
+
+# check container
+$ docker ps
+
+# stop container
+$ docker-compose stop
+
+# remove container
+$ docker-compose down
+
+# remove all of container stuff
+# docker-compose down --rmi all --volumes
+
+# log for laravel
+$ docker-compose logs
+
+# seeding the database
+$ docker-compose exec app php artisan db:seed
+```
+
 ## FOR WINDOWS ENVIRONMENT
 
 ### installation
@@ -105,33 +132,6 @@ winpty docker-compose exec app php artisan db:seed
 ```
 web server:     http://localhost/
 php my admin:   http://localhost:8888/
-```
-
-### executables
-```
-# up default container
-$ docker-compose up -d
-
-# build no cache and force remake container
-$ docker-compose build --no-cache --force-rm
-
-# check container
-$ docker ps
-
-# stop container
-$ docker-compose stop
-
-# remove container
-$ docker-compose down
-
-# remove all of container stuff
-# docker-compose down --rmi all --volumes
-
-# log for laravel
-$ docker-compose logs
-
-# seeding the database
-$ docker-compose exec app php artisan db:seed
 ```
 
 ## FYI
