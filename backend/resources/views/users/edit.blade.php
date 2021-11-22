@@ -12,7 +12,7 @@
 		<div class="col-4">
 			<div class="mb-3">
 				@if ($user->avatar)
-					<img src="{{ asset('/storage/avatars/' . $user->avatar) }}" class="img-thumbnail mb-3" alt="{{ $user->avatar }}" />
+					<img src="{{ App\Models\User::showAvatar($user->avatar) }}" class="img-thumbnail mb-3" alt="{{ $user->avatar }}" />
 				@else
 					<i class="far fa-image fa-9x"></i>
 				@endif
