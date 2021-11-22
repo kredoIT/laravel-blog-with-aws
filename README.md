@@ -136,7 +136,7 @@ php my admin:   http://localhost:8888/
 ```
 
 ## FYI
-####laravel storage log errors  / laravel storage permission
+#### laravel storage log errors  / laravel storage permission
 ```
 # [LINUX/MAC]
 $ docker-compose exec app chown www-data storage/ -R
