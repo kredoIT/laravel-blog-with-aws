@@ -96,8 +96,9 @@ DB_PASSWORD=password
 
 
 10. winpty docker-compose exec app php artisan config:cache
-11. winpty docker-compose exec app chown www-data storage/ -R
-12. winpty docker-compose exec app php artisan migrate
+11. winpty docker-compose exec app php artisan storage:link
+12. winpty docker-compose exec app chown www-data storage/ -R
+13. winpty docker-compose exec app php artisan migrate
 ```
 
 #### executables
